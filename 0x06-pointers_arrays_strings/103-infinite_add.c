@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * rev_string - reverse array
- * @n: integer params
- * Return: 0
- */
+* rev_string - reverse array
+* @n: integer params
+* Return: 0
+*/
 
 void rev_string(char *n)
 {
@@ -27,13 +27,13 @@ void rev_string(char *n)
 }
 
 /**
- * infinite_add - Adds two numbers
- * @n1: One of the numbers
- * @n2: The other number
- * @r: Buffer that the function will use to store the result
- * @size_r: Buffer size
- * Return: Always 0
- */
+* infinite_add - add 2 numbers together
+* @n1: text representation of 1st number to add
+* @n2: text representation of 2nd number to add
+* @r: pointer to buffer
+* @size_r: buffer size
+* Return: pointer to calling function
+*/
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
@@ -42,6 +42,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	while (*(n1 + i) != '\0')
 		i++;
+
 	while (*(n2 + j) != '\0')
 		j++;
 	i--;
@@ -49,7 +50,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (j >= size_r || i >= size_r)
 		return (0);
 	while (j >= 0 || i >= 0 || overflow == 1)
-	{
+{
 		if (i < 0)
 			val1 = 0;
 		else
@@ -70,6 +71,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		j--;
 		i--;
 	}
+
 	if (digits == size_r)
 		return (0);
 	*(r + digits) = '\0';

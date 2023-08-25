@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
- * print_list - A function that prints a linked list
+ * print_list - A function for outputting a linked list
  * @h: pointer t  head of list
- * Return: number of nodes in list as size_t
+ * Return: Retrieve the count of nodes in the list as a size_t
  */
 size_t print_list(const list_t *h)
 {

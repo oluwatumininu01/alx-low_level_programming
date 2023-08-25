@@ -2,10 +2,10 @@
 #include <string.h>
 
 /**
- * add_node - A function that adds a node to the head of linked list
+ * add_node - Function for inserting a node at the beginning of a linked list
  * @head: pointer to a list_t pointer that points to the head struct
  * @str: pointer to string that adds as node
- * Return: pointer to new head of list, NULL on failure
+ * Return: Reference to the updated list head, or NULL if unsuccessful.
  */
 list_t *add_node(list_t **head, const char *str)
 {

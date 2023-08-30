@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdio.h>
+
 /**
  * print_listint - print integer
  * @h: the element containing the list
@@ -15,5 +17,6 @@ size_t print_listint(const listint_t *h)
 		node_num++;
 	}
 	printf("%d\n", h->n);
+
 	return (node_num);
 }

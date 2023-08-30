@@ -1,24 +1,22 @@
 #include "lists.h"
 
 /**
- * get_nodeint_at_index - gets a node of list at specific index
- * @head: pointer to listint_t structure
- * @i: index of the node
- * Return: pointer to node at specified index, or NULL if not exist
+ * pop_listint - deletes the head node of a list
+ * and returns the head node's data n.
+ * @head: pointer to listint_t structure.
+ * Return: head node's datafrom deleted element
  */
-listint_t *get_nodeint_at_index(listint_t *head, unsigned int i)
+int pop_listint(listint_t **head)
 {
-	unsigned int num = 0;
+	listint_t *new_node;
+	int endpoint;
 
-	if (head == NULL)
-		return (NULL);
+	if (*head == NULL)
+		return (0);
 
-	while (head)
-	{
-		if (num == i)
-			return (head);
-		head = head->next;
-		num++;
-	}
-	return (NULL);
+	endpoint = (*head)->n;
+	new_node = (*head)->next;
+	free(*head);
+	*head = new_node;
+	return (endpoint);
 }

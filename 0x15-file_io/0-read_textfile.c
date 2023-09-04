@@ -1,46 +1,28 @@
-#include <sys/stat.h>
+#include "main.h"
 #include <stdlib.h>
-#include <sys/uio.h>
-#include <sys/types.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <elf.h>
-
-void print_class(unsigned char *e_ident);
-void print_data(unsigned char *e_ident);
-void print_version(unsigned char *e_ident);
-void print_abi(unsigned char *e_ident);
-void print_osabi(unsigned char *e_ident);
-void print_type(unsigned int e_type, unsigned char *e_ident);
-void print_entry(unsigned long int e_entry, unsigned char *e_ident);
-void close_elf(int elf);
-void check_elf(unsigned char *e_ident);
-void print_magic(unsigned char *e_ident);
 
 /**
- * check_elf - A function that checks if a file is an elf file.
- *
- * @e_ident: A pointer to an array containing the elf magic numbers.
- *
- * Description: If the file is not an elf file - exit code 98.
- *
+ * read_textfile- Read text file print to STDOUT.
+ * @filename: text file being read
+ * @letters: number of letters to be read
+ * Return: w- actual number of bytes read and printed
+ *        0 when function fails or filename is NULL.
  */
-
-void check_elf(unsigned char *e_ident)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int i;
+	char *buf;
+	ssize_t fd;
+	ssize_t w;
+	ssize_t t;
 
-	for (i = 0; i < 4; i++)
-	{
-		if (e_ident[i] != 127 &&
-		    e_ident[i] != 'E' &&
-		    e_ident[i] != 'L' &&
-		    e_ident[i] != 'F')
-		{
-			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
-			exit(98);
-		}
-	}
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (0);
+	buf = malloc(sizeof(char) * letters);
+	t = read(fd, buf, letters);
+	w = write(STDOUT_FILENO, buf, t);
+
+	free(buf);
+	close(fd);
+	return (w);
 }

@@ -1,50 +1,28 @@
-/**
- * add - addition
- * @a: number
- * @b: nuber
- * Return: result
- */
-int add(int a, int b)
-{
-      return (a + b);
+#include <stdio.h>
+
+int add(int a, int b) {
+        return a + b;
 }
-/**
- * sub - addition
- * @a: number
- * @b: nuber
- * Return: result
- */
-int sub(int a, int b)
-{
-      return (a - b);
+int sub(int a, int b) {
+         return a - b;
 }
-/**
- * mul - addition
- * @a: number
- * @b: nuber
- * Return: result
- */
-int mul(int a, int b)
-{
-      return (a * b);
+int mul(int a, int b) {
+         return a * b;
 }
-/**
- * div - addition
- * @a: number
- * @b: nuber
- * Return: result
- */
-int div(int a, int b)
-{
-      return (a / b);
+
+int div(int a, int b) {
+        if (b == 0) {
+	printf("Error: Division by zero\n");
+                return 0;
+        }
+        return a / b;
 }
-/**
- * mod - addition
- * @a: number
- * @b: nuber
- * Return: result
- */
-int mod(int a, int b)
-{
-      return (a % b);
+
+int mod(int a, int b) {
+        if (b == 0) {
+	printf("Error: Division by zero\n");
+        return 0;
+        }
+        return a % b;
 }
+
